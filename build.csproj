@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- This project file is just a dummy to get a hold of the FAKE cli tool -->
+    
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="dotnet-fake" Version="5.11.1" />
+  </ItemGroup>
+</Project>

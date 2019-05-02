@@ -1,0 +1,26 @@
+init:
+  - git config --global core.autocrlf input
+
+build:
+  verbosity: detailed
+
+environment:
+  nodejs_version: "10.15.0"
+  NUGET_API_KEY:
+    secure: tuBcgqevArSCTwgr8GvgTB5qV0lhPGMyX5zVq9y6muRCO3nUXBfqps5zkzSb7UFS
+
+# Install scripts. (runs after repo cloning)
+#install:
+  # Get the latest stable version of Node.js
+  #- ps: Install-Product node $env:nodejs_version
+  # # Update npm
+  # # There seems to be issues with npm 5.4 in Windows
+  # # See https://github.com/npm/npm/issues/18380
+  # - npm install -g npm@6.1.0
+
+os: Visual Studio 2015
+
+build_script:
+  - cmd: appveyor.cmd
+
+test: off

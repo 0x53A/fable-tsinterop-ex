@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+
+    <AssemblyName>0x53A.Fable.TSInterop.Ex</AssemblyName>
+    <Version Condition=" '$(Version)' == 'cs' ">1.0.0</Version>
+    
+    <PackageId>0x53A.Fable.TSInterop.Ex</PackageId>
+    <PackageVersion>$(Version)</PackageVersion>
+    <PackageProjectUrl>https://github.com/0x53A/fable-tsinterop-ex</PackageProjectUrl>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
+    <DisableImplicitSystemValueTupleReference>true</DisableImplicitSystemValueTupleReference>
+    
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="JsConstructor.fs" />
+    <Compile Include="Fable.Core.JS.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Core" Version="3.0.0" />
+  </ItemGroup>
+  <!-- This package doesn't contain actual code
+       so we don't need to add the sources -->
+  <!-- <ItemGroup>
+    <Content Include="*.fsproj; *.fs" PackagePath="fable\" />
+  </ItemGroup> -->
+</Project>
