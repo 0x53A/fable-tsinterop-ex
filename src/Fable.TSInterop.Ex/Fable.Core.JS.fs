@@ -8,55 +8,55 @@ module JS =
 
     open Fable.Core.JS
 
-    type [<AllowNullLiteral>] PropertyDescriptor =
-        abstract configurable: bool option with get, set
-        abstract enumerable: bool option with get, set
-        abstract value: obj option with get, set
-        abstract writable: bool option with get, set
-        abstract get: unit -> obj
-        abstract set: v: obj -> unit
+    //type [<AllowNullLiteral>] PropertyDescriptor =
+    //    abstract configurable: bool option with get, set
+    //    abstract enumerable: bool option with get, set
+    //    abstract value: obj option with get, set
+    //    abstract writable: bool option with get, set
+    //    abstract get: unit -> obj
+    //    abstract set: v: obj -> unit
 
-    and [<AllowNullLiteral>] PropertyDescriptorMap =
+    type [<AllowNullLiteral>] PropertyDescriptorMap =
         [<Emit("$0[$1]{{=$2}}")>] abstract Item: s: string -> PropertyDescriptor with get, set
 
-    and [<AllowNullLiteral>] Object =
-        abstract ``constructor``: Function with get, set
-        abstract toString: unit -> string
-        abstract toLocaleString: unit -> string
-        abstract valueOf: unit -> obj
-        abstract hasOwnProperty: v: string -> bool
-        abstract isPrototypeOf: v: obj -> bool
-        abstract propertyIsEnumerable: v: string -> bool
-        abstract hasOwnProperty: v: obj -> bool
-        abstract propertyIsEnumerable: v: obj -> bool
+    //and [<AllowNullLiteral>] Object =
+    //    abstract ``constructor``: Function with get, set
+    //    abstract toString: unit -> string
+    //    abstract toLocaleString: unit -> string
+    //    abstract valueOf: unit -> obj
+    //    abstract hasOwnProperty: v: string -> bool
+    //    abstract isPrototypeOf: v: obj -> bool
+    //    abstract propertyIsEnumerable: v: string -> bool
+    //    abstract hasOwnProperty: v: obj -> bool
+    //    abstract propertyIsEnumerable: v: obj -> bool
 
-    and [<AllowNullLiteral>] ObjectConstructor =
-        abstract prototype: obj with get, set
-        [<Emit("new $0($1...)")>] abstract Create: ?value: obj -> obj
-        [<Emit("$0($1...)")>] abstract Invoke: unit -> obj
-        [<Emit("$0($1...)")>] abstract Invoke: value: obj -> obj
-        abstract getPrototypeOf: o: obj -> obj
-        abstract getOwnPropertyDescriptor: o: obj * p: string -> PropertyDescriptor
-        abstract getOwnPropertyNames: o: obj -> ResizeArray<string>
-        abstract create: o: obj * ?properties: PropertyDescriptorMap -> obj
-        abstract defineProperty: o: obj * p: string * attributes: PropertyDescriptor -> obj
-        abstract defineProperties: o: obj * properties: PropertyDescriptorMap -> obj
-        abstract seal: o: 'T -> 'T
-        abstract freeze: o: 'T -> 'T
-        abstract preventExtensions: o: 'T -> 'T
-        abstract isSealed: o: obj -> bool
-        abstract isFrozen: o: obj -> bool
-        abstract isExtensible: o: obj -> bool
-        abstract keys: o: obj -> ResizeArray<string>
-        abstract assign: target: 'T * source: 'U -> obj
-        abstract assign: target: 'T * source1: 'U * source2: 'V -> obj
-        abstract assign: target: 'T * source1: 'U * source2: 'V * source3: 'W -> obj
-        abstract assign: target: obj * [<ParamArray>] sources: obj[] -> obj
-        abstract getOwnPropertySymbols: o: obj -> ResizeArray<Symbol>
-        abstract is: value1: obj * value2: obj -> bool
-        abstract setPrototypeOf: o: obj * proto: obj -> obj
-        abstract getOwnPropertyDescriptor: o: obj * propertyKey: obj -> PropertyDescriptor
-        abstract defineProperty: o: obj * propertyKey: obj * attributes: PropertyDescriptor -> obj
+    //and [<AllowNullLiteral>] ObjectConstructor =
+        //abstract prototype: obj with get, set
+        //[<Emit("new $0($1...)")>] abstract Create: ?value: obj -> obj
+        //[<Emit("$0($1...)")>] abstract Invoke: unit -> obj
+        //[<Emit("$0($1...)")>] abstract Invoke: value: obj -> obj
+        //abstract getPrototypeOf: o: obj -> obj
+        //abstract getOwnPropertyDescriptor: o: obj * p: string -> PropertyDescriptor
+        //abstract getOwnPropertyNames: o: obj -> ResizeArray<string>
+        //abstract create: o: obj * ?properties: PropertyDescriptorMap -> obj
+        //abstract defineProperty: o: obj * p: string * attributes: PropertyDescriptor -> obj
+        //abstract defineProperties: o: obj * properties: PropertyDescriptorMap -> obj
+        //abstract seal: o: 'T -> 'T
+        //abstract freeze: o: 'T -> 'T
+        //abstract preventExtensions: o: 'T -> 'T
+        //abstract isSealed: o: obj -> bool
+        //abstract isFrozen: o: obj -> bool
+        //abstract isExtensible: o: obj -> bool
+        //abstract keys: o: obj -> ResizeArray<string>
+        //abstract assign: target: 'T * source: 'U -> obj
+        //abstract assign: target: 'T * source1: 'U * source2: 'V -> obj
+        //abstract assign: target: 'T * source1: 'U * source2: 'V * source3: 'W -> obj
+        //abstract assign: target: obj * [<ParamArray>] sources: obj[] -> obj
+        //abstract getOwnPropertySymbols: o: obj -> ResizeArray<Symbol>
+        //abstract is: value1: obj * value2: obj -> bool
+        //abstract setPrototypeOf: o: obj * proto: obj -> obj
+        //abstract getOwnPropertyDescriptor: o: obj * propertyKey: obj -> PropertyDescriptor
+        //abstract defineProperty: o: obj * propertyKey: obj * attributes: PropertyDescriptor -> obj
 
     and [<AllowNullLiteral>] Function =
         abstract prototype: obj with get, set
@@ -160,74 +160,74 @@ module JS =
         abstract toPrecision: ?precision: float -> string
         abstract valueOf: unit -> float
 
-    and [<AllowNullLiteral>] NumberConstructor =
-        abstract prototype: Number with get, set
-        abstract MAX_VALUE: float with get, set
-        abstract MIN_VALUE: float with get, set
-        abstract NaN: float with get, set
-        abstract NEGATIVE_INFINITY: float with get, set
-        abstract POSITIVE_INFINITY: float with get, set
-        abstract EPSILON: float with get, set
-        abstract MAX_SAFE_INTEGER: float with get, set
-        abstract MIN_SAFE_INTEGER: float with get, set
-        [<Emit("new $0($1...)")>] abstract Create: ?value: obj -> Number
-        [<Emit("$0($1...)")>] abstract Invoke: ?value: obj -> float
-        abstract isFinite: number: float -> bool
-        abstract isInteger: number: float -> bool
-        abstract isNaN: number: float -> bool
-        abstract isSafeInteger: number: float -> bool
-        abstract parseFloat: string: string -> float
-        abstract parseInt: string: string * ?radix: float -> float
+    //and [<AllowNullLiteral>] NumberConstructor =
+    //    abstract prototype: Number with get, set
+    //    abstract MAX_VALUE: float with get, set
+    //    abstract MIN_VALUE: float with get, set
+    //    abstract NaN: float with get, set
+    //    abstract NEGATIVE_INFINITY: float with get, set
+    //    abstract POSITIVE_INFINITY: float with get, set
+    //    abstract EPSILON: float with get, set
+    //    abstract MAX_SAFE_INTEGER: float with get, set
+    //    abstract MIN_SAFE_INTEGER: float with get, set
+    //    [<Emit("new $0($1...)")>] abstract Create: ?value: obj -> Number
+    //    [<Emit("$0($1...)")>] abstract Invoke: ?value: obj -> float
+    //    abstract isFinite: number: float -> bool
+    //    abstract isInteger: number: float -> bool
+    //    abstract isNaN: number: float -> bool
+    //    abstract isSafeInteger: number: float -> bool
+    //    abstract parseFloat: string: string -> float
+    //    abstract parseInt: string: string * ?radix: float -> float
 
     and [<AllowNullLiteral>] TemplateStringsArray =
         inherit Array<string>
         abstract raw: ResizeArray<string> with get, set
 
-    and [<AllowNullLiteral>] Math =
-        abstract E: float with get, set
-        abstract LN10: float with get, set
-        abstract LN2: float with get, set
-        abstract LOG2E: float with get, set
-        abstract LOG10E: float with get, set
-        abstract PI: float with get, set
-        abstract SQRT1_2: float with get, set
-        abstract SQRT2: float with get, set
-        [<Emit("$0[Symbol.toStringTag]{{=$1}}")>] abstract ``[Symbol.toStringTag]``: obj with get, set
-        abstract abs: x: float -> float
-        abstract acos: x: float -> float
-        abstract asin: x: float -> float
-        abstract atan: x: float -> float
-        abstract atan2: y: float * x: float -> float
-        abstract ceil: x: float -> float
-        abstract cos: x: float -> float
-        abstract exp: x: float -> float
-        abstract floor: x: float -> float
-        abstract log: x: float -> float
-        abstract max: [<ParamArray>] values: float[] -> float
-        abstract min: [<ParamArray>] values: float[] -> float
-        abstract pow: x: float * y: float -> float
-        abstract random: unit -> float
-        abstract round: x: float -> float
-        abstract sin: x: float -> float
-        abstract sqrt: x: float -> float
-        abstract tan: x: float -> float
-        abstract clz32: x: float -> float
-        abstract imul: x: float * y: float -> float
-        abstract sign: x: float -> float
-        abstract log10: x: float -> float
-        abstract log2: x: float -> float
-        abstract log1p: x: float -> float
-        abstract expm1: x: float -> float
-        abstract cosh: x: float -> float
-        abstract sinh: x: float -> float
-        abstract tanh: x: float -> float
-        abstract acosh: x: float -> float
-        abstract asinh: x: float -> float
-        abstract atanh: x: float -> float
-        abstract hypot: [<ParamArray>] values: float[] -> float
-        abstract trunc: x: float -> float
-        abstract fround: x: float -> float
-        abstract cbrt: x: float -> float
+    //and [<AllowNullLiteral>] Math =
+    //    abstract E: float with get, set
+    //    abstract LN10: float with get, set
+    //    abstract LN2: float with get, set
+    //    abstract LOG2E: float with get, set
+    //    abstract LOG10E: float with get, set
+    //    abstract PI: float with get, set
+    //    abstract SQRT1_2: float with get, set
+    //    abstract SQRT2: float with get, set
+    //    [<Emit("$0[Symbol.toStringTag]{{=$1}}")>] abstract ``[Symbol.toStringTag]``: obj with get, set
+    //    abstract abs: x: float -> float
+    //    abstract acos: x: float -> float
+    //    abstract asin: x: float -> float
+    //    abstract atan: x: float -> float
+    //    abstract atan2: y: float * x: float -> float
+    //    abstract ceil: x: float -> float
+    //    abstract cos: x: float -> float
+    //    abstract exp: x: float -> float
+    //    abstract floor: x: float -> float
+    //    abstract log: x: float -> float
+    //    abstract max: [<ParamArray>] values: float[] -> float
+    //    abstract min: [<ParamArray>] values: float[] -> float
+    //    abstract pow: x: float * y: float -> float
+    //    abstract random: unit -> float
+    //    abstract round: x: float -> float
+    //    abstract sin: x: float -> float
+    //    abstract sqrt: x: float -> float
+    //    abstract tan: x: float -> float
+    //    abstract clz32: x: float -> float
+    //    abstract imul: x: float * y: float -> float
+    //    abstract sign: x: float -> float
+    //    abstract log10: x: float -> float
+    //    abstract log2: x: float -> float
+    //    abstract log1p: x: float -> float
+    //    abstract expm1: x: float -> float
+    //    abstract cosh: x: float -> float
+    //    abstract sinh: x: float -> float
+    //    abstract tanh: x: float -> float
+    //    abstract acosh: x: float -> float
+    //    abstract asinh: x: float -> float
+    //    abstract atanh: x: float -> float
+    //    abstract hypot: [<ParamArray>] values: float[] -> float
+    //    abstract trunc: x: float -> float
+    //    abstract fround: x: float -> float
+    //    abstract cbrt: x: float -> float
 
     and [<AllowNullLiteral>] Date =
         abstract toString: unit -> string
@@ -317,21 +317,21 @@ module JS =
         [<Emit("$0[Symbol.search]($1...)")>] abstract ``[Symbol.search]``: string: string -> float
         [<Emit("$0[Symbol.split]($1...)")>] abstract ``[Symbol.split]``: string: string * ?limit: float -> ResizeArray<string>
 
-    and [<AllowNullLiteral>] RegExpConstructor =
-        abstract prototype: RegExp with get, set
-        abstract ``$1``: string with get, set
-        abstract ``$2``: string with get, set
-        abstract ``$3``: string with get, set
-        abstract ``$4``: string with get, set
-        abstract ``$5``: string with get, set
-        abstract ``$6``: string with get, set
-        abstract ``$7``: string with get, set
-        abstract ``$8``: string with get, set
-        abstract ``$9``: string with get, set
-        abstract lastMatch: string with get, set
-        [<Emit("new $0($1...)")>] abstract Create: pattern: string * ?flags: string -> RegExp
-        [<Emit("$0($1...)")>] abstract Invoke: pattern: string * ?flags: string -> RegExp
-        [<Emit("$0[Symbol.species]($1...)")>] abstract ``[Symbol.species]``: unit -> RegExpConstructor
+    //and [<AllowNullLiteral>] RegExpConstructor =
+    //    abstract prototype: RegExp with get, set
+    //    abstract ``$1``: string with get, set
+    //    abstract ``$2``: string with get, set
+    //    abstract ``$3``: string with get, set
+    //    abstract ``$4``: string with get, set
+    //    abstract ``$5``: string with get, set
+    //    abstract ``$6``: string with get, set
+    //    abstract ``$7``: string with get, set
+    //    abstract ``$8``: string with get, set
+    //    abstract ``$9``: string with get, set
+    //    abstract lastMatch: string with get, set
+    //    [<Emit("new $0($1...)")>] abstract Create: pattern: string * ?flags: string -> RegExp
+    //    [<Emit("$0($1...)")>] abstract Invoke: pattern: string * ?flags: string -> RegExp
+    //    [<Emit("$0[Symbol.species]($1...)")>] abstract ``[Symbol.species]``: unit -> RegExpConstructor
 
     and [<AllowNullLiteral>] Error =
         abstract name: string with get, set
@@ -396,12 +396,12 @@ module JS =
         [<Emit("new $0($1...)")>] abstract Create: ?message: string -> URIError
         [<Emit("$0($1...)")>] abstract Invoke: ?message: string -> URIError
 
-    and [<AllowNullLiteral>] JSON =
-        [<Emit("$0[Symbol.toStringTag]{{=$1}}")>] abstract ``[Symbol.toStringTag]``: obj with get, set
-        abstract parse: text: string * ?reviver: (obj->obj->obj) -> obj
-        abstract stringify: value: obj -> string
-        abstract stringify: value: obj * replacer: (string->obj->obj) -> string
-        abstract stringify: value: obj * replacer: (string->obj->obj) * space: obj -> string
+    //and [<AllowNullLiteral>] JSON =
+    //    [<Emit("$0[Symbol.toStringTag]{{=$1}}")>] abstract ``[Symbol.toStringTag]``: obj with get, set
+    //    abstract parse: text: string * ?reviver: (obj->obj->obj) -> obj
+    //    abstract stringify: value: obj -> string
+    //    abstract stringify: value: obj * replacer: (string->obj->obj) -> string
+    //    abstract stringify: value: obj * replacer: (string->obj->obj) * space: obj -> string
 
     and [<AllowNullLiteral>] ReadonlyArray<'T> =
         abstract length: float with get, set
@@ -506,33 +506,33 @@ module JS =
 
     and [<AllowNullLiteral>] ArrayBufferView =
         abstract buffer: ArrayBuffer with get, set
-        abstract byteLength: float with get, set
-        abstract byteOffset: float with get, set
+        abstract byteLength: int with get, set
+        abstract byteOffset: int with get, set
 
-    and [<AllowNullLiteral>] DataView =
-        abstract buffer: ArrayBuffer with get, set
-        abstract byteLength: float with get, set
-        abstract byteOffset: float with get, set
-        [<Emit("$0[Symbol.toStringTag]{{=$1}}")>] abstract ``[Symbol.toStringTag]``: obj with get, set
-        abstract getFloat32: byteOffset: float * ?littleEndian: bool -> float
-        abstract getFloat64: byteOffset: float * ?littleEndian: bool -> float
-        abstract getInt8: byteOffset: float -> float
-        abstract getInt16: byteOffset: float * ?littleEndian: bool -> float
-        abstract getInt32: byteOffset: float * ?littleEndian: bool -> float
-        abstract getUint8: byteOffset: float -> float
-        abstract getUint16: byteOffset: float * ?littleEndian: bool -> float
-        abstract getUint32: byteOffset: float * ?littleEndian: bool -> float
-        abstract setFloat32: byteOffset: float * value: float * ?littleEndian: bool -> unit
-        abstract setFloat64: byteOffset: float * value: float * ?littleEndian: bool -> unit
-        abstract setInt8: byteOffset: float * value: float -> unit
-        abstract setInt16: byteOffset: float * value: float * ?littleEndian: bool -> unit
-        abstract setInt32: byteOffset: float * value: float * ?littleEndian: bool -> unit
-        abstract setUint8: byteOffset: float * value: float -> unit
-        abstract setUint16: byteOffset: float * value: float * ?littleEndian: bool -> unit
-        abstract setUint32: byteOffset: float * value: float * ?littleEndian: bool -> unit
+        //and [<AllowNullLiteral>] DataView =
+        //    abstract buffer: ArrayBuffer with get, set
+        //    abstract byteLength: int with get, set
+        //    abstract byteOffset: int with get, set
+        //    [<Emit("$0[Symbol.toStringTag]{{=$1}}")>] abstract ``[Symbol.toStringTag]``: obj with get, set
+        //    abstract getFloat32: byteOffset: int * ?littleEndian: bool -> float32
+        //    abstract getFloat64: byteOffset: int * ?littleEndian: bool -> float
+        //    abstract getInt8: byteOffset: int -> int8
+        //    abstract getInt16: byteOffset: int * ?littleEndian: bool -> int16
+        //    abstract getInt32: byteOffset: int * ?littleEndian: bool -> int32
+        //    abstract getUint8: byteOffset: int -> uint8
+        //    abstract getUint16: byteOffset: int * ?littleEndian: bool -> uint16
+        //    abstract getUint32: byteOffset: int * ?littleEndian: bool -> uint32
+        //    abstract setFloat32: byteOffset: int * value: float32 * ?littleEndian: bool -> unit
+        //    abstract setFloat64: byteOffset: int * value: float * ?littleEndian: bool -> unit
+        //    abstract setInt8: byteOffset: int * value: int8 -> unit
+        //    abstract setInt16: byteOffset: int * value: int16 * ?littleEndian: bool -> unit
+        //    abstract setInt32: byteOffset: int * value: int32 * ?littleEndian: bool -> unit
+        //    abstract setUint8: byteOffset: int * value: uint8 -> unit
+        //    abstract setUint16: byteOffset: int * value: uint16 * ?littleEndian: bool -> unit
+        //    abstract setUint32: byteOffset: int * value: uint32 * ?littleEndian: bool -> unit
 
-    and [<AllowNullLiteral>] DataViewConstructor =
-        [<Emit("new $0($1...)")>] abstract Create: buffer: ArrayBuffer * ?byteOffset: float * ?byteLength: float -> DataView
+        //and [<AllowNullLiteral>] DataViewConstructor =
+        //    [<Emit("new $0($1...)")>] abstract Create: buffer: ArrayBuffer * ?byteOffset: float * ?byteLength: float -> DataView
 
     and [<AllowNullLiteral>] Int8Array =
         abstract BYTES_PER_ELEMENT: float with get, set
@@ -1099,21 +1099,21 @@ module JS =
         abstract revocable: target: 'T * handler: ProxyHandler<'T> -> obj
         [<Emit("new $0($1...)")>] abstract Create: target: 'T * handler: ProxyHandler<'T> -> 'T
 
-    and [<AllowNullLiteral>] Promise<'T> =
-        [<Emit("$0[Symbol.toStringTag]{{=$1}}")>] abstract ``[Symbol.toStringTag]``: obj with get, set
-        abstract ``then``: ?onfulfilled: ('T->'TResult) * ?onrejected: (obj->'TResult) -> Promise<'TResult>
-        abstract catch: ?onrejected: (obj->'T) -> Promise<'T>
+    //and [<AllowNullLiteral>] Promise<'T> =
+    //    [<Emit("$0[Symbol.toStringTag]{{=$1}}")>] abstract ``[Symbol.toStringTag]``: obj with get, set
+    //    abstract ``then``: ?onfulfilled: ('T->'TResult) * ?onrejected: (obj->'TResult) -> Promise<'TResult>
+    //    abstract catch: ?onrejected: (obj->'T) -> Promise<'T>
 
-    and [<AllowNullLiteral>] PromiseConstructor =
-        abstract prototype: Promise<obj> with get, set
-        [<Emit("$0[Symbol.species]{{=$1}}")>] abstract ``[Symbol.species]``: Function with get, set
-        [<Emit("new $0($1...)")>] abstract Create: executor: ((obj->unit) -> (obj->unit) -> unit) -> Promise<'T>
-        abstract all: [<ParamArray>] values: obj[] -> Promise<obj>
-        abstract race: values: obj seq -> Promise<obj>
-        abstract reject: reason: obj -> Promise<unit>
-        abstract reject: reason: obj -> Promise<'T>
-        abstract resolve: value: 'T -> Promise<'T>
-        abstract resolve: unit -> Promise<unit>
+    //and [<AllowNullLiteral>] PromiseConstructor =
+    //    abstract prototype: Promise<obj> with get, set
+    //    [<Emit("$0[Symbol.species]{{=$1}}")>] abstract ``[Symbol.species]``: Function with get, set
+    //    [<Emit("new $0($1...)")>] abstract Create: executor: ((obj->unit) -> (obj->unit) -> unit) -> Promise<'T>
+    //    abstract all: [<ParamArray>] values: obj[] -> Promise<obj>
+    //    abstract race: values: obj seq -> Promise<obj>
+    //    abstract reject: reason: obj -> Promise<unit>
+    //    abstract reject: reason: obj -> Promise<'T>
+    //    abstract resolve: value: 'T -> Promise<'T>
+    //    abstract resolve: unit -> Promise<unit>
 
     type [<AllowNullLiteral>] [<Global>] Reflect =
         static member apply(target: Function, thisArgument: obj, argumentsList: ArrayLike<obj>): obj = jsNative
@@ -1159,9 +1159,9 @@ module JS =
     //and [<Erase>] SetIntervalToken =
     //    | SetIntervalToken of obj
 
-    let [<Global>] NaN: float = jsNative
-    let [<Global>] Infinity: float = jsNative
-    let [<Global>] Object: ObjectConstructor = jsNative
+    //let [<Global>] NaN: float = jsNative
+    //let [<Global>] Infinity: float = jsNative
+    //let [<Global>] Object: ObjectConstructor = jsNative
     let [<Global>] Function: FunctionConstructor = jsNative
     let [<Global>] String: StringConstructor = jsNative
     let [<Global>] Boolean: BooleanConstructor = jsNative
@@ -1196,7 +1196,7 @@ module JS =
     let [<Global>] Set: SetConstructor = jsNative
     let [<Global>] WeakSet: WeakSetConstructor = jsNative
     let [<Global>] Proxy: ProxyConstructor = jsNative
-    let [<Global>] Promise: PromiseConstructor = jsNative
+    //let [<Global>] Promise: PromiseConstructor = jsNative
     let [<Global>] eval: string -> string = jsNative
     let [<Global>] isFinite: float -> bool = jsNative
     let [<Global>] isNaN: float -> bool = jsNative
